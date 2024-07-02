@@ -7,36 +7,53 @@
 
 <h2 id="description">📙 Descrição</h2>
 
-1 – Classe Pessoa com os atributos: nome (String) e data nascimento (LocalDate).
+Desenvolver um projeto Java, com os seguintes requisitos:
 
-2 – Classe Funcionário que estenda a classe Pessoa, com os atributos: salário (BigDecimal) e função (String).
+1. **Classe Pessoa**
+    - Atributos:
+        - `nome` (String)
+        - `dataNascimento` (LocalDate)
 
-3 – Deve conter uma classe Principal para executar as seguintes ações:
+2. **Classe Funcionário**
+    - Herda da classe `Pessoa`
+    - Atributos adicionais:
+        - `salario` (BigDecimal)
+        - `funcao` (String)
 
-3.1 – Inserir todos os funcionários, na mesma ordem e informações da tabela acima.
+3. **Classe Principal**
+    - Deve conter as seguintes ações:
 
-3.2 – Remover o funcionário “João” da lista.
-
-3.3 – Imprimir todos os funcionários com todas suas informações, sendo que:
-
-• informação de data deve ser exibido no formato dd/mm/aaaa;
-
-
-• informação de valor numérico deve ser exibida no formatado com separador de milhar como ponto e decimal como vírgula.
-
-3.4 – Os funcionários receberam 10% de aumento de salário, atualizar a lista de funcionários com novo valor.
-
-3.5 – Agrupar os funcionários por função em um MAP, sendo a chave a “função” e o valor a “lista de funcionários”.
-
-3.6 – Imprimir os funcionários, agrupados por função.
-
-3.8 – Imprimir os funcionários que fazem aniversário no mês 10 e 12.
-
-3.9 – Imprimir o funcionário com a maior idade, exibir os atributos: nome e idade.
-
-3.10 – Imprimir a lista de funcionários por ordem alfabética.
-
-3.11 – Imprimir o total dos salários dos funcionários.
-
-3.12 – Imprimir quantos salários mínimos ganha cada funcionário, considerando que o salário mínimo é R$1212.00.
- 
+        **3.1 Inserir Funcionários**
+         - Insere todos os funcionários na mesma ordem e com as mesmas informações da tabela fornecida.
+     
+         **3.2 Remover Funcionário**
+         - Remove o funcionário “João” da lista.
+     
+        **3.3 Imprimir Funcionários**
+        Imprime todos os funcionários com todas as suas informações, formatadas da seguinte maneira:
+        - Data no formato `dd/MM/yyyy`
+        - Valores numéricos formatados com separador de milhar como ponto e decimal como vírgula.
+     
+        **3.4 Aumentar Salário**
+        - Aplica um aumento de 10% no salário de todos os funcionários e atualiza a lista.
+     
+        **3.5 Agrupar Funcionários por Função**
+        - Agrupa os funcionários por função em um `Map`, onde a chave é a `função` e o valor é a lista de funcionários.
+     
+        **3.6 Imprimir Funcionários Agrupados por Função**
+        - Imprime os funcionários agrupados por função.
+     
+        **3.8 Imprimir Funcionários Aniversariantes**
+        - Imprime os funcionários que fazem aniversário nos meses 10 e 12.
+     
+        **3.9 Imprimir Funcionário com Maior Idade**
+        - Imprime o funcionário com a maior idade, exibindo os atributos `nome` e `idade`.
+     
+        **3.10 Imprimir Funcionários em Ordem Alfabética**
+        - Imprime a lista de funcionários em ordem alfabética.
+     
+        **3.11 Imprimir Total dos Salários**
+        - Imprime o total dos salários dos funcionários.
+     
+        **3.12 Calcular Salários Mínimos**
+        - Imprime quantos salários mínimos cada funcionário recebe, considerando que o salário mínimo é R$ 1212,00.
