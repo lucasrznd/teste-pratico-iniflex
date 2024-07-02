@@ -63,4 +63,8 @@ public abstract class FuncionarioPrinter {
         System.out.println("3.11 – Imprimir o total dos salários dos funcionários:");
     }
 
+    public static void imprimirTask3Ponto12() {
+        System.out.println("3.12 – Imprimir quantos salários mínimos ganha cada funcionário");
+    }
+
 }
