@@ -64,7 +64,12 @@ public class TestePraticoApplication {
         /* OK - 3.11 – Imprimir o total dos salários dos funcionários */
         FuncionarioPrinter.imprimirTask3Ponto11();
         FuncionarioPrinter.imprimirMensagem("Salário Total dos Funcionários: R$ " + FormataCampos.formatarSalario(funcionarioService.salarioTotalFuncionarios()));
+        FuncionarioPrinter.imprimirLinhasSeparacao();
 
-        /* NAO CONSEGUI FAZER - 3.12 – Imprimir quantos salários mínimos ganha cada funcionário, considerando que o salário mínimo é R$1212.00 */
+        /* OK - 3.12 – Imprimir quantos salários mínimos ganha cada funcionário, considerando que o salário mínimo é R$1212.00 */
+        for (Funcionario funcionario : listaDeFuncionarios) {
+            FuncionarioPrinter.imprimirMensagem("Quantidade de Salários Mínimos Equivalentes: " + funcionarioService.contarEquivalenciaSalarialFuncionario(funcionario, 1212.00));
+            FuncionarioPrinter.imprimirFuncionarioComCamposFormatados(funcionario);
+        }
     }
 }

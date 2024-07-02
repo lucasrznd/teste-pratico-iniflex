@@ -57,6 +57,18 @@ public class FuncionarioService {
         return funcionarioRepository.salarioTotalFuncionarios();
     }
 
+    public int contarEquivalenciaSalarialFuncionario(Funcionario funcionario, Double salarioMinimo) {
+        double salarioFuncionario = funcionario.getSalario().doubleValue();
+        int numeroDeSalariosMinimosEquivalentes = 0;
+
+        do {
+            numeroDeSalariosMinimosEquivalentes++;
+            salarioFuncionario = salarioFuncionario - salarioMinimo;
+        } while (salarioFuncionario > salarioMinimo);
+
+        return numeroDeSalariosMinimosEquivalentes;
+    }
+
     public List<Funcionario> deleteByNome(String nome) {
         Funcionario funcionarioEncontrado = funcionarioRepository.findByNome(nome);
         List<Funcionario> listaDeFuncionarios = findAll();
