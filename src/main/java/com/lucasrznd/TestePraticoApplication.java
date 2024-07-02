@@ -24,9 +24,7 @@ public class TestePraticoApplication {
 
         /* OK - 3.3 - Imprimir todos os funcionários com todas suas informações */
         FuncionarioPrinter.imprimirTask3Ponto3();
-        for (Funcionario funcionario : listaDeFuncionarios) {
-            FuncionarioPrinter.imprimirFuncionarioComCamposFormatados(funcionario);
-        }
+        FuncionarioPrinter.imprimirListaDeFuncionarios(listaDeFuncionarios);
 
         /* OK - 3.4 – Os funcionários receberam 10% de aumento de salário, atualizar a lista de funcionários com novo valor */
         for (Funcionario funcionario : listaDeFuncionarios) {
