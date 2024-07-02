@@ -1,6 +1,7 @@
 package com.lucasrznd.entities;
 
 import java.time.LocalDate;
+import java.util.Objects;
 
 public class Pessoa {
 
@@ -36,6 +37,19 @@ public class Pessoa {
                 "nome='" + nome + '\'' +
                 ", dataNascimento=" + dataNascimento +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Pessoa pessoa = (Pessoa) o;
+        return Objects.equals(nome, pessoa.nome) && Objects.equals(dataNascimento, pessoa.dataNascimento);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(nome, dataNascimento);
     }
 
 }
