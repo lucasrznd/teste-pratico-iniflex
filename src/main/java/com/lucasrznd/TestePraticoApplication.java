@@ -94,28 +94,28 @@ public class TestePraticoApplication {
         System.out.println("Salário Total: " + formatarSalario(salarioBigDecimal));
         System.out.println("--------------------------------");
 
-        /* AINDA NAO CONSEGUI FAZER - 3.12 – Imprimir quantos salários mínimos ganha cada funcionário, considerando que o salário mínimo é R$1212.00 */
-        System.out.println("3.12 – Imprimir quantos salários mínimos ganha cada funcionário");
-        double salarioMinimo = 1212.00;
-        int salarioEquivalenteAoMinimo = 0;
+        /* NAO CONSEGUI FAZER - 3.12 – Imprimir quantos salários mínimos ganha cada funcionário, considerando que o salário mínimo é R$1212.00 */
+//        System.out.println("3.12 – Imprimir quantos salários mínimos ganha cada funcionário");
+//        double salarioMinimo = 1212.00;
+//        int salarioEquivalenteAoMinimo = 0;
+//
+//        Funcionario func1 = listaDeFuncionarios.get(3);
+//        double salarioFunc1 = func1.getSalario().doubleValue();
+//        System.out.println(v);
+////        if (salarioFunc1 < salarioMinimo) {
+////             salarioEquivalenteAoMinimo = 0;
+////        } else if (salarioFunc1 > salarioMinimo) {
+////            double var = salarioFunc1 - salarioMinimo;
+////            salarioEquivalenteAoMinimo++;
+////        }
+////
+////        if (salarioFunc1 < salarioMinimo) {
+////            salarioEquivalenteAoMinimo = 1;
+////        } else {
+////
+////        }
+//        System.out.println("--------------------------------");
 
-        Funcionario func1 = listaDeFuncionarios.get(0);
-        double salarioFunc1 = func1.getSalario().doubleValue();
-        int v = calcularQuantidadeEmSalariosMinimos(salarioFunc1, salarioMinimo);
-        System.out.println(v);
-//        if (salarioFunc1 < salarioMinimo) {
-//             salarioEquivalenteAoMinimo = 0;
-//        } else if (salarioFunc1 > salarioMinimo) {
-//            double var = salarioFunc1 - salarioMinimo;
-//            salarioEquivalenteAoMinimo++;
-//        }
-//
-//        if (salarioFunc1 < salarioMinimo) {
-//            salarioEquivalenteAoMinimo = 1;
-//        } else {
-//
-//        }
-        System.out.println("--------------------------------");
     }
 
     public static void imprimirFuncionarioComCamposFormatados(Funcionario func) {
@@ -160,14 +160,4 @@ public class TestePraticoApplication {
         return BigDecimal.valueOf(salarioAumentado);
     }
 
-    public static int calcularQuantidadeEmSalariosMinimos(Double salario, Double salarioMinimo) {
-        int salarioEquivalenteAoMinimo = 0;
-
-        if (salario < salarioMinimo) {
-            salarioEquivalenteAoMinimo = 0;
-        } else {
-            salarioEquivalenteAoMinimo++;
-        }
-        return salarioEquivalenteAoMinimo;
-    }
 }
