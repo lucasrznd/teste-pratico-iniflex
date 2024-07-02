@@ -25,28 +25,28 @@ public class TestePraticoApplication {
         System.out.println("------TESTE PRÁTICO - INIFLEX------");
         System.out.println("-----------------------------------");
 
-        /* 3.1 – Inserir todos os funcionários */
+        /* OK - 3.1 – Inserir todos os funcionários */
         listaDeFuncionarios = funcionarioRepository.getListaDeFuncionarios();
 
-        /* 3.2 - Remover o funcionário “João” da lista */
+        /* OK - 3.2 - Remover o funcionário “João” da lista */
         Funcionario funcionarioEncontrado = findByNome(listaDeFuncionarios, "João");
         listaDeFuncionarios.remove(funcionarioEncontrado);
 
-        /* 3.3 - Imprimir todos os funcionários com todas suas informações */
+        /* OK - 3.3 - Imprimir todos os funcionários com todas suas informações */
         System.out.println("3.3 - Imprimir todos os funcionários com todas suas informações");
         for (Funcionario func : listaDeFuncionarios) {
             imprimirFuncionarioComCamposFormatados(func);
         }
 
-        /* 3.4 – Os funcionários receberam 10% de aumento de salário, atualizar a lista de funcionários com novo valor */
+        /* OK - 3.4 – Os funcionários receberam 10% de aumento de salário, atualizar a lista de funcionários com novo valor */
         listaDeFuncionarios = listaDeFuncionarios.stream()
                 .peek(funcionario -> funcionario.setSalario(aumentarSalario(funcionario, PORCENTAGEM_AUMENTO))).collect(Collectors.toList());
 
-        /* 3.5 – Agrupar os funcionários por função em um MAP, sendo a chave a “função” e o valor a “lista de funcionários”. */
+        /* PRECISO MELHORAR - 3.5 – Agrupar os funcionários por função em um MAP, sendo a chave a “função” e o valor a “lista de funcionários”. */
         Map<String, List<Funcionario>> funcionariosPorFuncao = listaDeFuncionarios.stream()
                 .collect(Collectors.groupingBy(Funcionario::getFuncao));
 
-        /* 3.6 – Imprimir os funcionários, agrupados por função */
+        /* PRECISO MELHORAR - 3.6 – Imprimir os funcionários, agrupados por função */
         System.out.println("3.6 – Imprimir os funcionários, agrupados por função");
         funcionariosPorFuncao.forEach((funcao, funcionarios) -> {
             System.out.println("Função: " + funcao);
@@ -55,7 +55,7 @@ public class TestePraticoApplication {
         });
         System.out.println("--------------------------------");
 
-        /* 3.8 – Imprimir os funcionários que fazem aniversário no mês 10 e 12 */
+        /* OK - 3.8 – Imprimir os funcionários que fazem aniversário no mês 10 e 12 */
         System.out.println("3.8 – Imprimir os funcionários que fazem aniversário no mês 10 e 12");
         for (Funcionario func : listaDeFuncionarios) {
             if (func.getDataNascimento().getMonth().equals(Month.OCTOBER) || func.getDataNascimento().getMonth().equals(Month.DECEMBER)) {
@@ -63,7 +63,7 @@ public class TestePraticoApplication {
             }
         }
 
-        /* 3.9 – Imprimir o funcionário com a maior idade, exibir os atributos: nome e idade */
+        /* OK - 3.9 – Imprimir o funcionário com a maior idade, exibir os atributos: nome e idade */
         System.out.println("3.9 – Imprimir o funcionário com a maior idade");
         Funcionario funcMaiorIdade = listaDeFuncionarios.get(0);
         for (int i = 0; i < listaDeFuncionarios.size(); i++) {
@@ -75,7 +75,7 @@ public class TestePraticoApplication {
         System.out.println("Nome: " + funcMaiorIdade.getNome() + ", Idade: " +  idade);
         System.out.println("--------------------------------");
 
-        /* 3.10 – Imprimir a lista de funcionários por ordem alfabética */
+        /* OK - 3.10 – Imprimir a lista de funcionários por ordem alfabética */
         System.out.println("3.10 – Imprimir a lista de funcionários por ordem alfabética");
         listaDeFuncionarios.sort(new Comparator<Funcionario>() {
             @Override
@@ -87,18 +87,34 @@ public class TestePraticoApplication {
             imprimirFuncionarioComCamposFormatados(func);
         }
 
-        /* 3.11 – Imprimir o total dos salários dos funcionários */
+        /* OK - 3.11 – Imprimir o total dos salários dos funcionários */
         System.out.println("3.11 – Imprimir o total dos salários dos funcionários:");
         double salarioTotalFuncionarios = listaDeFuncionarios.stream().mapToDouble(func -> func.getSalario().doubleValue()).sum();
         BigDecimal salarioBigDecimal = BigDecimal.valueOf(salarioTotalFuncionarios);
         System.out.println("Salário Total: " + formatarSalario(salarioBigDecimal));
         System.out.println("--------------------------------");
 
-        /* 3.12 – Imprimir quantos salários mínimos ganha cada funcionário, considerando que o salário mínimo é R$1212.00 */
+        /* AINDA NAO CONSEGUI FAZER - 3.12 – Imprimir quantos salários mínimos ganha cada funcionário, considerando que o salário mínimo é R$1212.00 */
         System.out.println("3.12 – Imprimir quantos salários mínimos ganha cada funcionário");
-        BigDecimal salarioMinimo = new BigDecimal("1212.00");
+        double salarioMinimo = 1212.00;
+        int salarioEquivalenteAoMinimo = 0;
+
         Funcionario func1 = listaDeFuncionarios.get(0);
-        System.out.println(func1.getSalario().compareTo(salarioMinimo));
+        double salarioFunc1 = func1.getSalario().doubleValue();
+        int v = calcularQuantidadeEmSalariosMinimos(salarioFunc1, salarioMinimo);
+        System.out.println(v);
+//        if (salarioFunc1 < salarioMinimo) {
+//             salarioEquivalenteAoMinimo = 0;
+//        } else if (salarioFunc1 > salarioMinimo) {
+//            double var = salarioFunc1 - salarioMinimo;
+//            salarioEquivalenteAoMinimo++;
+//        }
+//
+//        if (salarioFunc1 < salarioMinimo) {
+//            salarioEquivalenteAoMinimo = 1;
+//        } else {
+//
+//        }
         System.out.println("--------------------------------");
     }
 
@@ -142,5 +158,16 @@ public class TestePraticoApplication {
         double salarioAumentado = func.getSalario().doubleValue() + (func.getSalario().doubleValue() * porcentagem / 100);
 
         return BigDecimal.valueOf(salarioAumentado);
+    }
+
+    public static int calcularQuantidadeEmSalariosMinimos(Double salario, Double salarioMinimo) {
+        int salarioEquivalenteAoMinimo = 0;
+
+        if (salario < salarioMinimo) {
+            salarioEquivalenteAoMinimo = 0;
+        } else {
+            salarioEquivalenteAoMinimo++;
+        }
+        return salarioEquivalenteAoMinimo;
     }
 }
