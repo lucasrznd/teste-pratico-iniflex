@@ -4,7 +4,10 @@ import com.lucasrznd.entities.Funcionario;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.time.Month;
+import java.time.Period;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 public class FuncionarioRepository {
@@ -24,8 +27,62 @@ public class FuncionarioRepository {
         listaDeFuncionarios.add(new Funcionario("Helena", LocalDate.of(1996, 9, 2), BigDecimal.valueOf(2799.93), "Gerente"));
     }
 
-    public List<Funcionario> getListaDeFuncionarios() {
+    public List<Funcionario> findAll() {
         return listaDeFuncionarios;
+    }
+
+    public Funcionario findByNome(String nome) {
+        for (Funcionario funcionario : listaDeFuncionarios) {
+            if (funcionario.getNome().equals(nome)) {
+                return funcionario;
+            }
+        }
+        return null;
+    }
+
+    public List<Funcionario> findByMesAniversario(Month mes) {
+        List<Funcionario> novaLista = new ArrayList<>();
+
+        for (Funcionario funcionario : listaDeFuncionarios) {
+            if (funcionario.getDataNascimento().getMonth().equals(mes)) {
+                novaLista.add(funcionario);
+            }
+        }
+
+        return novaLista;
+    }
+
+    public Funcionario findByDataNascimentoDesc() {
+        Funcionario funcionarioMaisVelho = listaDeFuncionarios.get(0);
+
+        for (int i = 0; i < listaDeFuncionarios.size(); i++) {
+            if (listaDeFuncionarios.get(i).getDataNascimento().isBefore(funcionarioMaisVelho.getDataNascimento())) {
+                funcionarioMaisVelho = listaDeFuncionarios.get(i);
+            }
+        }
+
+        return funcionarioMaisVelho;
+    }
+
+    public List<Funcionario> findAllByOrdemAlfabetica() {
+        listaDeFuncionarios.sort(new Comparator<Funcionario>() {
+            @Override
+            public int compare(Funcionario f1, Funcionario f2) {
+                return f1.getNome().compareTo(f2.getNome());
+            }
+        });
+
+        return listaDeFuncionarios;
+    }
+
+    public BigDecimal salarioTotalFuncionarios() {
+        double somaSalarioFuncionarios = listaDeFuncionarios.stream().mapToDouble(func -> func.getSalario().doubleValue()).sum();
+
+        return BigDecimal.valueOf(somaSalarioFuncionarios);
+    }
+
+    public void setListaDeFuncionarios(List<Funcionario> listaDeFuncionarios) {
+        this.listaDeFuncionarios = listaDeFuncionarios;
     }
 
 }
