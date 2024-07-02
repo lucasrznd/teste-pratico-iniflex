@@ -11,6 +11,11 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 public class TestePraticoApplication {
+
+    private static final int PORCENTAGEM_AUMENTO = 10;
+
+    private static final double SALARIO_MINIMO = 1212.00;
+
     public static void main(String[] args) {
         FuncionarioService funcionarioService = new FuncionarioService();
 
@@ -28,7 +33,7 @@ public class TestePraticoApplication {
 
         /* OK - 3.4 – Os funcionários receberam 10% de aumento de salário, atualizar a lista de funcionários com novo valor */
         for (Funcionario funcionario : listaDeFuncionarios) {
-            funcionarioService.aumentarSalario(funcionario, 10);
+            funcionarioService.aumentarSalario(funcionario, PORCENTAGEM_AUMENTO);
         }
 
         /* PRECISO MELHORAR - 3.5 – Agrupar os funcionários por função em um MAP, sendo a chave a “função” e o valor a “lista de funcionários”. */
@@ -69,7 +74,7 @@ public class TestePraticoApplication {
         /* OK - 3.12 – Imprimir quantos salários mínimos ganha cada funcionário, considerando que o salário mínimo é R$1212.00 */
         FuncionarioPrinter.imprimirTask3Ponto12();
         for (Funcionario funcionario : listaDeFuncionarios) {
-            FuncionarioPrinter.imprimirMensagem("Quantidade de Salários Mínimos Equivalentes: " + funcionarioService.contarEquivalenciaSalarialFuncionario(funcionario, 1212.00));
+            FuncionarioPrinter.imprimirMensagem("Quantidade de Salários Mínimos Equivalentes: " + funcionarioService.contarEquivalenciaSalarialFuncionario(funcionario, SALARIO_MINIMO));
             FuncionarioPrinter.imprimirFuncionarioComCamposFormatados(funcionario);
         }
     }
