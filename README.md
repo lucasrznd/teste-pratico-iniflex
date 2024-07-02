@@ -1,4 +1,13 @@
-1– Classe Pessoa com os atributos: nome (String) e data nascimento (LocalDate).
+<h2 align="center">Teste Prático - Iniflex</h2>
+
+<div align="center">
+ 
+![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white)
+</div>
+
+<h2 id="description">📙 Descrição</h2>
+
+1 – Classe Pessoa com os atributos: nome (String) e data nascimento (LocalDate).
 
 2 – Classe Funcionário que estenda a classe Pessoa, com os atributos: salário (BigDecimal) e função (String).
 
@@ -11,6 +20,7 @@
 3.3 – Imprimir todos os funcionários com todas suas informações, sendo que:
 
 • informação de data deve ser exibido no formato dd/mm/aaaa;
+
 
 • informação de valor numérico deve ser exibida no formatado com separador de milhar como ponto e decimal como vírgula.
 
